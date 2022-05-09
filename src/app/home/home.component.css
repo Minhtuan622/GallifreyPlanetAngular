@@ -1,0 +1,196 @@
+/* header */
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 20px 0 0;
+  margin: 0 15px;
+}
+
+.header.active {
+  position: fixed;
+  top: 35px;
+  padding: 20px 15px;
+}
+
+.header.active .container {
+  max-width: 1500px;
+  margin: auto;
+}
+
+.header .nav-toggler {
+  width: 50px;
+  height: 50px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: var(--white-alpha-25);
+  border: 1px solid var(--white-alpha-40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15px;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.header .nav-toggler.hide {
+  opacity: 0;
+  transition: none;
+}
+
+.header .nav-toggler span {
+  height: 2px;
+  width: 24px;
+  background-color: var(--main-color);
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.header.active .nav-toggler span {
+  background-color: transparent;
+}
+
+.header .nav-toggler span::before,
+.header .nav-toggler span::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--main-color);
+  transition: all 0.3s ease;
+}
+
+.header .nav-toggler span::before {
+  left: 0;
+  transform: translateY(-8px);
+}
+
+.header.active .nav-toggler span::before {
+  transform: rotate(45deg);
+}
+
+.header .nav-toggler span::after {
+  right: 0;
+  transform: translateY(8px);
+}
+
+.header.active .nav-toggler span::after {
+  transform: rotate(-45deg);
+}
+
+.header:not(.active) .nav-toggler:hover span::before,
+.header:not(.active) .nav-toggler:hover span::after {
+  width: 50%;
+}
+
+.header .nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  padding: 35px 15px;
+  overflow-y: auto;
+  visibility: hidden;
+}
+
+.header.active .nav {
+  visibility: visible;
+}
+
+.header .nav-inner {
+  min-height: calc(100vh - 70px);
+  max-width: 1500px;
+  margin: auto;
+  background-color: var(--white-alpha-25);
+  border: 1px solid var(--white-alpha-40);
+  backdrop-filter: var(--backdrop-filter-blur);
+  padding: 50px;
+  border-radius: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.header.active .nav-inner {
+  opacity: 1;
+}
+
+.header .nav-inner ul li {
+  text-align: center;
+}
+
+.header .nav-inner ul li a {
+  display: block;
+  text-transform: capitalize;
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--blule-dark);
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.header .nav-inner ul li a::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 50%;
+  width: 0;
+  background-color: var(--white-alpha-25);
+  z-index: -1;
+  transition: width 0.3s ease;
+}
+
+.header .nav-inner ul li a:hover::before {
+  width: 100%;
+}
+
+.header .nav-inner ul li a:hover {
+  color: var(--main-color);
+}
+
+/* home section */
+.home-section {
+  padding: 120px 0;
+}
+
+.home-section.active {
+  display: flex;
+}
+
+.home-img, .home-text {
+  width: 50%;
+  padding: 15px;
+}
+
+.home-text p {
+  font-size: 20px;
+}
+
+.home-text h1 {
+  font-size: 50px;
+  text-transform: capitalize;
+}
+
+.home-text h2 {
+  font-size: 20px;
+  text-transform: capitalize;
+  font-weight: 300;
+  margin: 0 0 30px;
+}
+
+.home-text .btn {
+  margin: 0 15px 15px 0;
+}
+
+.home-img .img-box img {
+  width: 100%;
+  border-radius: 50%;
+}
